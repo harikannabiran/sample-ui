@@ -1,8 +1,8 @@
-import { AppBar, Badge, Box, Button, IconButton, Menu, MenuItem, Radio, Toolbar, Typography } from '@mui/material';
+import { AppBar, Badge, Box, Button, IconButton, Radio, Toolbar, Typography } from '@mui/material';
 import logo from "../public/logo.png"
 import React from 'react'
 import Search from './Search';
-import { AccountCircleRounded, Language,  LogoutOutlined,  Notifications } from '@mui/icons-material';
+import { AccountCircleRounded, Language,  Notifications } from '@mui/icons-material';
 import { styled } from '@mui/material/styles';
 function NavBar() {
     const StyledBadge = styled(Badge)(({ theme }) => ({

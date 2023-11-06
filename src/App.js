@@ -7,7 +7,6 @@ import { Switch,Route } from 'react-router-dom/cjs/react-router-dom.min';
 import ResetPasswordPage from './pages/ResetPasswordPage';
 import ForgotPasswordPage from './pages/ForgotPasswordPage';
 import Dashboard from './pages/Dashboard';
-import NavBar from './components/NavBar';
 import ErrorPage from './pages/Error404Page.js';
 import Error401Page from './pages/Error401page';
 import Error500Page from './pages/Error500Page';
@@ -24,6 +23,10 @@ const routes=[
     path:"/dashboard",
     component:Dashboard,
    
+  },
+  {
+    path:"/",
+    component:LandingPage
   },
   
   {

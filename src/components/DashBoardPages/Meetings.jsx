@@ -1,9 +1,10 @@
-import { Box } from '@mui/material'
+import { Box, Typography } from '@mui/material'
 import React from 'react'
 
 function Meetings() {
   return (
-    <Box width={100} height={100} sx={{backgroundColor:"green"}}>
+    <Box >
+    <Typography variant='h2' >Meetings section</Typography>
 
     </Box>
   )

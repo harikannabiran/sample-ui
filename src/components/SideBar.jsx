@@ -13,7 +13,6 @@ import Meetings from './DashBoardPages/Meetings';
 import Settings from './DashBoardPages/Settings';
 import Help from './DashBoardPages/Help';
 import HomeIcon from '@mui/icons-material/Home';
-import CircleOutlinedIcon from '@mui/icons-material/CircleOutlined';
 import { useHistory } from 'react-router-dom';
 import ConstructionIcon from '@mui/icons-material/Construction';
 import GroupsIcon from '@mui/icons-material/Groups';
