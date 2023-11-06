@@ -26,7 +26,8 @@ const routes=[
   },
   {
     path:"/",
-    component:LandingPage
+    component:LandingPage,
+    exact:true
   },
   
   {
@@ -71,7 +72,7 @@ function App() {
           key={index}
           path={route.path}
           component={route.component}
-          exact={route.exact}
+          exact={route.path ==="/"}
         />
       ))}
     </Switch >
