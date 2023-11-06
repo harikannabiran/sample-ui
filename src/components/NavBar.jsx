@@ -57,10 +57,8 @@ function NavBar() {
                     anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
                     variant="dot"
                     >
-                    
                     <AccountCircleRounded/>
-                   
-          
+
                 </StyledBadge>
                             
                 </IconButton>

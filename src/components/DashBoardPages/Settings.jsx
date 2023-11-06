@@ -29,8 +29,8 @@ function Settings() {
         <TabPanel value="1"><AccountTab/></TabPanel>
         <TabPanel value="2"><SecurityTab/></TabPanel>
         <TabPanel value="3"><InfoTab/></TabPanel>
-        <TabPanel value="4">Item Four</TabPanel>
-        <TabPanel value="5">Item Five</TabPanel>
+        <TabPanel value="4">Billing section</TabPanel>
+        <TabPanel value="5">Notification section</TabPanel>
       </TabContext>
     </Box>
     </Box>
