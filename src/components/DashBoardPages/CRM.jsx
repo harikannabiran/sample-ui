@@ -137,7 +137,7 @@ function CRM() {
     const selectedHeader = cardData[index].header;
     history.push(`/dashboard/crm/${selectedHeader.toLowerCase()}`);
     setCardIndex(index)
-    console.log(index)
+   
     setIsFlipped(isFlipped?false:true);
     setDetail(cardData[cardIndex])
   };

@@ -69,7 +69,7 @@ function Sidebar() {
     const ShowComponent=(props)=>{
 
       const {children,activeTree,selectedTree}=props
-      console.log(children)
+     
       return ( <div hidden={activeTree!== selectedTree}>
           {activeTree === selectedTree && <Box mx={2} >{children}</Box>}
       

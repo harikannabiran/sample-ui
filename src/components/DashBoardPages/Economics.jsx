@@ -78,7 +78,7 @@ function Economics() {
          <CardHeader sx={{justifyContent:"right"}} title=
           {
             data.chip?<>
-            <Chip sx={{zIndex:"1"}} label={data.chip} variant='outlined'/>
+            <Chip sx={{zIndex:"1"}} color='success' label={data.chip} variant='outlined'/>
             </>:<><Box sx={{height:"30px"}}></Box></>
          }/>
           <CardMedia component="img" width="100" height='200' sx={{objectFit:"contain"}} image={data.img} />
