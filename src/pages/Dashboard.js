@@ -2,12 +2,20 @@
 import { Box, Link, Typography } from "@mui/material"
 import NavBar from "../components/NavBar"
 import Sidebar from "../components/SideBar"
-
+import { Outlet, Route, Routes } from "react-router-dom"
+import CRM from "../components/DashBoardPages/CRM"
+import Home from "../components/DashBoardPages/Home"
+import Economics from "../components/DashBoardPages/Economics"
+import Settings  from "../components/DashBoardPages/Settings"
+import Meetings from "../components/DashBoardPages/Meetings"
+import Analytics from "../components/DashBoardPages/Clients"
+import Help from "../components/DashBoardPages/Help"
 const Dashboard=()=>{
     return(
             <div >
                 <NavBar/>
                 <Sidebar  />
+                
                 <footer style={{display:"flex",justifyContent:"space-between",margin:"10px 100px 10px 300px"}}>
                     <Box>
                         <Typography sx={{color:"grey"}}>&#169; 2023, by hari</Typography>

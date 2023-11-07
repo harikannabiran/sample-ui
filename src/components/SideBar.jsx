@@ -1,171 +1,130 @@
-import React, { useState } from 'react'
-import { Box, } from '@mui/material';
+import React, { useState } from 'react';
+import { Box } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import { TreeView } from '@mui/x-tree-view/TreeView';
 import { TreeItem } from '@mui/x-tree-view/TreeItem';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import Home from './DashBoardPages/Home';
-import CRM from "./DashBoardPages/CRM"
-import Clients from './DashBoardPages/Clients';
-import Economics from './DashBoardPages/Economics';
-import Meetings from './DashBoardPages/Meetings';
-import Settings from './DashBoardPages/Settings';
-import Help from './DashBoardPages/Help';
+import { Outlet, Link, Routes, Route } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import HomeIcon from '@mui/icons-material/Home';
-import { useHistory } from 'react-router-dom';
 import ConstructionIcon from '@mui/icons-material/Construction';
 import GroupsIcon from '@mui/icons-material/Groups';
-import { useLocation } from 'react-router-dom';
-import { useEffect } from 'react';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import AnalyticsIcon from '@mui/icons-material/Analytics';
 import MonetizationOnOutlinedIcon from '@mui/icons-material/MonetizationOnOutlined';
 import MemoryOutlinedIcon from '@mui/icons-material/MemoryOutlined';
-const useStyles=makeStyles({
-    item:{
-        margin:"0px",
-        fontSize:"64px",
-        textAlign:"left",
-       
-        },  
-})
+import Home from './DashBoardPages/Home';
+import CRM from './DashBoardPages/CRM';
+import Economics from './DashBoardPages/Economics';
+import Settings from './DashBoardPages/Settings';
+import Meetings from './DashBoardPages/Meetings';
+import Analytics from '@mui/icons-material/Analytics';
+import Help from './DashBoardPages/Help';
+
+const useStyles = makeStyles({
+  item: {
+    margin: "0px",
+    fontSize: "64px",
+    textAlign: "left",
+  },
+});
 
 function Sidebar() {
-    const classes=useStyles()
-    const history = useHistory()
-    const location = useLocation();
-    const sidebarItems=[
-        ["Home",<HomeIcon color='grey'/>],
-        ["CRM",<MemoryOutlinedIcon/>],
-        ["Economics",<MonetizationOnOutlinedIcon/>],
-        ["Settings",<ConstructionIcon/>],
-        ["Meetings",<GroupsIcon/>],
-        ["Analytics",<AnalyticsIcon/>],
-        ["Help",<HelpOutlineIcon/>]
-    ]
-    const [auth, setAuth] = useState(true);
-    const [anchorEl, setAnchorEl] =useState(null);
-  
-    const currentPath = location.pathname;
-  const initialActiveTree = sidebarItems.find(([node, path]) => currentPath.includes(node.toLowerCase()))[0];
-  
+  const classes = useStyles();
+  const location = useLocation();
 
-  const [activeTree, setActiveTree] = useState(initialActiveTree);
-    const handleChange = (event) => {
-      setAuth(event.target.checked);
-    };
-    const handleMenu = (event) => {
-      setAnchorEl(event.currentTarget);
-    };
-    const handleClose = () => {
-      setAnchorEl(null);
-    };
-    const handleSelect=(event,selectedTree)=>{
-      const selectedNode = sidebarItems[selectedTree][0];
-      setActiveTree(selectedNode);
-      history.push(`/dashboard/${selectedNode.toLowerCase()}`);
-    }
-    const ShowComponent=(props)=>{
+  const sidebarItems = [
+    { name: "Home", icon: <HomeIcon color='grey' />, path: '/dashboard/home' },
+    { name: "CRM", icon: <MemoryOutlinedIcon />, path: '/dashboard/crm' },
+    { name: "Economics", icon: <MonetizationOnOutlinedIcon />, path: '/dashboard/economics' },
+    { name: "Settings", icon: <ConstructionIcon />, path: '/dashboard/settings' },
+    { name: "Meetings", icon: <GroupsIcon />, path: '/dashboard/meetings' },
+    { name: "Analytics", icon: <AnalyticsIcon />, path: '/dashboard/analytics' },
+    { name: "Help", icon: <HelpOutlineIcon />, path: '/dashboard/help' }
+  ];
 
-      const {children,activeTree,selectedTree}=props
-     
-      return ( <div hidden={activeTree!== selectedTree}>
-          {activeTree === selectedTree && <Box mx={2} >{children}</Box>}
-      
-      </div>
-    )}
-    useEffect(() => {
-      const handlePopstate = () => {
-        window.location.reload();
-      };
-      const handlePushstate = () => {
-        window.location.reload();
-      };
-      window.addEventListener('popstate', handlePopstate);
-      window.addEventListener('pushstate', handlePushstate);
-      return () => {
-        window.removeEventListener('popstate', handlePopstate);
-        window.removeEventListener('pushstate', handlePushstate);
-      };
-    }, []); 
+  const currentPath = location.pathname;
+
   return (
-    <Box sx={{display:"flex",flexGrow:1,height:"848px"}}>
+    <Box sx={{ display: "flex", flexGrow: 1, height: "848px" }}>
       <Box sx={{
-        width:"300px",
-        height:"90vh", 
-        background:"inherit",
-        margin:"0px", 
-        justifyContent:"space-between",
-        display:"flex",
-        flexDirection:"column"}}>
-        
-        
-          <main style={{
-            display:"flex",
-            flexDirection:"column",
-            justifyContent:"space-between",
-            marginTop:"50px"}}>
-            <section style={{maxWidth:"300px"}}>
-              <Box sx={{
-                maxWidth:"100%", 
-                minHeight: 180, 
-                flexGrow: 1}}>
-                  <TreeView
-                  
-                      sx={{width:"100%"}}
-                      defaultCollapseIcon={<ExpandMoreIcon />}
-                      defaultExpandIcon={<ChevronRightIcon />}
-                      onNodeSelect={handleSelect}
-                      disabledItems
-                  >
-                    {sidebarItems.map((item,index)=> <TreeItem  className={classes.item} icon={item[1]}
-                      sx={{height:"42px",marginLeft:"10px",
-                      
-                      ".MuiTreeItem-label":{
-                        fontSize:"24px",
-                        color:"grey"
+        width: "300px",
+        height: "90vh",
+        background: "inherit",
+        margin: "0px",
+        justifyContent: "space-between",
+        display: "flex",
+        flexDirection: "column"
+      }}>
+        <main style={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-between",
+          marginTop: "50px"
+        }}>
+          <section style={{ maxWidth: "300px" }}>
+            <Box sx={{
+              maxWidth: "100%",
+              minHeight: 180,
+              flexGrow: 1
+            }}>
+              <TreeView
+                sx={{ width: "100%" }}
+                defaultCollapseIcon={<ExpandMoreIcon />}
+                defaultExpandIcon={<ChevronRightIcon />}
+              >
+                {sidebarItems.map((item, index) => (
+                  <TreeItem className={classes.item} icon={item.icon}
+                    sx={{
+                      height: "42px",
+                      marginLeft: "10px",
+                      textDecoration:"none",
+                      ".MuiTreeItem-label": {
+                        fontSize: "24px",
+                        color: "grey"
                       },
-                      ".MuiTreeItem-iconContainer":{
-                        color:"grey"
+                      ".MuiTreeItem-iconContainer": {
+                        color: "grey"
                       },
-                      ".Mui-selected":{
-                        backgroundColor:"black",
-                     
+                      ".Mui-selected": {
+                        backgroundColor: "black",
                       },
-                      ".MuiTreeItem-content":{
-                        padding:"0px 10px"
+                      ".MuiTreeItem-content": {
+                        padding: "0px 10px"
                       },
-                      ".MuiTreeItem-group":{
-                        backgroundColor:"black",
+                      ".MuiTreeItem-group": {
+                        backgroundColor: "black",
                       },
-                      ".MuiTreeItem-root &:hover":{
-                        backgroundColor:"black",
+                      ".MuiTreeItem-root &:hover": {
+                        backgroundColor: "black",
                       }
-                      
-                      
-                      }}
-                      nodeId={index} 
-                      label={item[0]}/>)}
-                  </TreeView>
-              </Box>
-            </section>
-          </main>
-          
-        </Box>
-   
-      <Box width="90%" height="100%" sx={{overflow:"auto"}}  >
-              <ShowComponent activeTree={activeTree} selectedTree="Home"><Home /></ShowComponent>
-              <ShowComponent activeTree={activeTree} selectedTree="CRM"><CRM /></ShowComponent>
-              <ShowComponent activeTree={activeTree} selectedTree="Analytics"><Clients /></ShowComponent>
-              <ShowComponent activeTree={activeTree} selectedTree="Economics"><Economics/></ShowComponent>
-              <ShowComponent activeTree={activeTree} selectedTree="Meetings"><Meetings/></ShowComponent>
-              <ShowComponent activeTree={activeTree} selectedTree="Settings"><Settings/></ShowComponent>
-              <ShowComponent activeTree={activeTree} selectedTree="Help"><Help/></ShowComponent>
-              
-        </Box>
-       
+                    }}
+                    nodeId={index}
+                    label={<Link to={item.path} style={{textDecoration:"none"}}>{item.name}</Link>}
+                  />
+                ))}
+              </TreeView>
+            </Box>
+          </section>
+        </main>
+      </Box>
+
+      <Box width="90%" height="100%" sx={{ overflow: "auto" }}>
+        <Outlet />
+        <Routes>
+          <Route path="/home" element={<Home />} />
+          <Route path="/crm" element={<CRM />} />
+          <Route path="/economics" element={<Economics />} />
+          <Route path="/settings" element={<Settings />} />
+          <Route path="/meetings" element={<Meetings />} />
+          <Route path="/analytics" element={<Analytics />} />
+          <Route path="/help" element={<Help />} />
+          {/* Add other nested routes for your menu items */}
+        </Routes>
+      </Box>
     </Box>
-  )
+  );
 }
-export default Sidebar
+
+export default Sidebar;

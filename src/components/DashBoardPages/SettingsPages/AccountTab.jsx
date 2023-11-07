@@ -11,9 +11,8 @@ function AccountTab() {
             <Button  variant='contained' sx={{margin:"10px 20px"}}>upload new photo</Button>
             <Button variant='outlined' sx={{margin:"10px 20px"}} color='error'>reset</Button>
             <Typography variant='body2' sx={{color:"grey",textAlign:"left",paddingLeft:"8%"}}> Allowed JPG,GIF or PNG, Max size of 800kb</Typography>
-        </Container>
-            
-        </Container>
+        </Container>  
+        </Container> 
         <Container sx={{marginLeft:"10px",padding:"0px"}}>
             <Box sx={{display:"flex",justifyContent:"space-between"}}>
                 <TextField sx={{width:"100%",margin:"20px 20px 20px 0px"}} variant='outlined' label="Username" placeholder='Username'/>

@@ -5,7 +5,7 @@ import React from 'react'
 
 function InfoTab() {
   return (
-    <Box>
+    <Box >
         <Container  sx={{margin:"0px 0px 10px 0px"}}>
             <Box>
                 <TextField sx={{width:"82%"}} variant='outlined' label="Bio" multiline rows={4} />

@@ -1,8 +1,9 @@
-import LandingPageComp from "../components/LandingPageComp"
+import LandinPageComp from "../components/LandingPageComp"
 
 const LandingPage=()=>{
-    return  (
-        <LandingPageComp/>
+
+    return (
+        <LandinPageComp />
     )
 }
 

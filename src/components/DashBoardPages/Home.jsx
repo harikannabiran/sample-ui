@@ -36,8 +36,8 @@ function Home() {
     }
   ]
   return (
-    <Box>
-      <Box  sx={{backgroundColor:"#DDF2FD",height:"300px",width:"100%",borderRadius:"20px",paddingTop:"5vh"}}>
+    <Box sx={{paddingLeft:"50px"}}>
+      <Box  sx={{backgroundColor:"#DDF2FD",height:"300px",width:"95%",borderRadius:"20px",paddingTop:"5vh"}}>
      
       <Typography mt={2} mb={2} variant='h5' sx={{color:"#5272F2"}}>Hello, how can we help?</Typography>
           <Typography mt={2} mb={2} variant='body1' sx={{color:"grey"}}>or choose a category to quickly find help you need</Typography>
@@ -50,7 +50,7 @@ function Home() {
           />
         </FormControl>
       </Box> 
-      <Box sx={{margin:"20px 0px 50px 0px",paddingLeft:"80px"}} >
+      <Box sx={{margin:"20px 0px 20px 0px",paddingLeft:"30px"}} >
       <Grid container  rowSpacing={4}  columns={{ xs: 4, sm: 4, md: 12 }} >
       
         {cardData.map((data)=>{
