@@ -5,6 +5,7 @@ import Search from './Search';
 import { AccountCircleRounded, Language,  Notifications } from '@mui/icons-material';
 import { styled } from '@mui/material/styles';
 import LogoutIcon from '@mui/icons-material/Logout';
+import { red } from '@mui/material/colors';
 function NavBar() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
@@ -50,7 +51,12 @@ function NavBar() {
             <Toolbar sx={{display:"flex",justifyContent:"space-between"}}>
             <div>
                 <Button href='/dashboard/' variant='text' disableTouchRipple><img src={logo} alt='logo'></img> <Typography ml={1} variant='h6' sx={{font:"24px ",color:"#5272F2"}}>NEATLAB</Typography> </Button>
-                <Radio size='sm' sx={{color:"grey"}}/>
+                <Radio size='sm'  sx={{
+                  color: red[800],
+                  '&.Mui-checked': {
+                    color: red[600],
+                  },
+                }}/>
                 <Search />
             </div>  
             <div>

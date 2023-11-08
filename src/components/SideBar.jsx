@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Box,  Divider, List, ListItem, ListItemIcon, ListItemText } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import { Outlet, Link, Routes, Route } from 'react-router-dom';
@@ -45,16 +45,16 @@ const useStyles = makeStyles({
     borderTopRightRadius:"100px",
     borderBottomRightRadius:"100px",
     textAlign: "left",
-   
+    
     '&:hover': {
-      backgroundColor:" linear-gradient(90deg, rgba(49,162,249,1) 0%, rgba(49,162,249,1) 35%, rgba(38,77,201,1) 100%)",
+      backgroundColor:" rgba(49,162,249,1)",
      
     }, 
     
     
     "&:focus": {
       color:"white",
-      background:" linear-gradient(90deg, rgba(49,162,249,1) 0%, rgba(49,162,249,1) 35%, rgba(38,77,201,1) 100%)",
+      background:"  rgba(49,162,249,1)",
       outline: "none",
     },
    
@@ -63,11 +63,12 @@ const useStyles = makeStyles({
     fontSize:"32px",
     color: 'inherit',
   },
+ 
   selected: {
-    color:"white",
-    backgroundColor: " linear-gradient(90deg, rgba(49,162,249,1) 0%, rgba(49,162,249,1) 35%, rgba(38,77,201,1) 100%)",
+    color: "white",
+    backgroundColor: "rgba(49,162,249,1)",
     '& $icon': {
-      color: "white", 
+      color: "white",
     },
   },
    
@@ -78,60 +79,64 @@ function Sidebar() {
   const location = useLocation();
 
   const sidebarItems = [
-    { name: "Home", icon: <HomeOutlinedIcon fontSize='medium' />, path: '/dashboard/home' },
-    { name: "CRM", icon: <MemoryOutlinedIcon fontSize='medium'/>, path: '/dashboard/crm' },
-    { name: "eCommerce", icon: <MonetizationOnOutlinedIcon fontSize='medium' />, path: '/dashboard/eCommerce' },
-    { name: "Settings", icon: <SettingsOutlinedIcon fontSize='medium' />, path: '/dashboard/settings' },
-    { name: "Analytics", icon: <AnalyticsOutlinedIcon fontSize='medium'/>, path: '/dashboard/analytics' },
-    { name: "Meetings", icon: <Groups2OutlinedIcon fontSize='medium' />, path: '/dashboard/meetings' },
-    { name: "Help", icon: <HelpOutlineIcon fontSize='medium' />, path: '/dashboard/help' }
+    { name: "Home", icon: <HomeOutlinedIcon fontSize='medium' />, path: '/dashboard/home',id:1 },
+    { name: "CRM", icon: <MemoryOutlinedIcon fontSize='medium'/>, path: '/dashboard/crm',id:2 },
+    { name: "eCommerce", icon: <MonetizationOnOutlinedIcon fontSize='medium' />, path: '/dashboard/eCommerce',id:3 },
+    { name: "Settings", icon: <SettingsOutlinedIcon fontSize='medium' />, path: '/dashboard/settings',id:4 },
+    { name: "Analytics", icon: <AnalyticsOutlinedIcon fontSize='medium'/>, path: '/dashboard/analytics',id:5 },
+    { name: "Meetings", icon: <Groups2OutlinedIcon fontSize='medium' />, path: '/dashboard/meetings',id:6 },
+    { name: "Help", icon: <HelpOutlineIcon fontSize='medium' />, path: '/dashboard/help',id:7 }
   ];
   const sidebarAppSection=[
-    { name: "Email", icon: <EmailOutlinedIcon fontSize='medium' />, path: '/dashboard/email' },
-    { name: "Chat", icon: <ChatBubbleOutlineOutlinedIcon fontSize='medium'/>, path: '/dashboard/chat' },
-    { name: "Calendar", icon: <CalendarTodayOutlinedIcon fontSize='medium' />, path: '/dashboard/calendar' },
-    { name: "Invoice", icon: <ContentPasteOutlinedIcon fontSize='medium' />, path: '/dashboard/invoice' },
-    { name: "User", icon: <ContentCopyOutlinedIcon fontSize='medium' />, path: '/dashboard/user' },
-    { name: "Roles & Permission", icon: <LockOpenOutlinedIcon fontSize='medium'/>, path: '/dashboard/roles-and-permission' },
-    { name: "Pages", icon: <DescriptionOutlinedIcon fontSize='medium' />, path: '/dashboard/pages' },
-    { name: "Dialog Examples", icon: <PersonOutlineOutlinedIcon fontSize='medium' />, path: '/dashboard/dialog-examples' },
+    { name: "Email", icon: <EmailOutlinedIcon fontSize='medium' />, path: '/dashboard/email' ,id:8},
+    { name: "Chat", icon: <ChatBubbleOutlineOutlinedIcon fontSize='medium'/>, path: '/dashboard/chat',id:9 },
+    { name: "Calendar", icon: <CalendarTodayOutlinedIcon fontSize='medium' />, path: '/dashboard/calendar',id:10 },
+    { name: "Invoice", icon: <ContentPasteOutlinedIcon fontSize='medium' />, path: '/dashboard/invoice',id:11 },
+    { name: "User", icon: <ContentCopyOutlinedIcon fontSize='medium' />, path: '/dashboard/user',id:12 },
+    { name: "Roles & Permission", icon: <LockOpenOutlinedIcon fontSize='medium'/>, path: '/dashboard/roles-and-permission',id:13 },
+    { name: "Pages", icon: <DescriptionOutlinedIcon fontSize='medium' />, path: '/dashboard/pages',id:14 },
+    { name: "Dialog Examples", icon: <PersonOutlineOutlinedIcon fontSize='medium' />, path: '/dashboard/dialog-examples',id:15 },
   ]
   const currentPath = location.pathname;
   const [selectedItem, setSelectedItem] = useState(currentPath);
 
+  useEffect(() => {
+    setSelectedItem(currentPath);
+  }, [currentPath]);
+
   const handleItemClick = (item) => {
     setSelectedItem(item);
+    console.log(selectedItem)
   };
-
   return (
     <Box sx={{ display: "flex", flexGrow: 1, height: "848px" }}>
-         <nav className={classes.sidebar} style={{width:"300px" }}>
-      <List  >
-        {sidebarItems.map((item, index) => (
-          <ListItem
-              className={`${classes.item} ${currentPath === item.path ? classes.selected : ''}`}
+         <nav className={classes.sidebar} style={{ width: "300px" }}>
+        <List>
+          {sidebarItems.map((item, index) => (
+            <ListItem
+              className={`${classes.item} ${selectedItem === item.path ? classes.selected : ""}`}
               key={item.name}
               component={Link}
               to={item.path}
             >
-            <ListItemIcon className={classes.icon}>{item.icon}</ListItemIcon>
-            <ListItemText primary={item.name} />
-          </ListItem>
-        ))}
-        <Divider sx={{marginTop:"10px",color:"grey",fontSize:"small"}} textAlign='left'>APPS & PAGES</Divider>
-        {sidebarAppSection.map((item, index) => (
-          <ListItem
-              className={`${classes.item} ${currentPath === item.path ? classes.selected : ''}`}
+              <ListItemIcon className={classes.icon}>{item.icon}</ListItemIcon>
+              <ListItemText primary={item.name} />
+            </ListItem>
+          ))}
+          <Divider sx={{ marginTop: "10px", color: "grey", fontSize: "small" }} textAlign='left'>APPS & PAGES</Divider>
+          {sidebarAppSection.map((item, index) => (
+            <ListItem
+              className={`${classes.item} ${selectedItem === item.path ? classes.selected : ''}`}
               key={item.name}
               component={Link}
               to={item.path}
             >
-            <ListItemIcon className={classes.icon}>{item.icon}</ListItemIcon>
-            <ListItemText primary={item.name} />
-          </ListItem>
-        ))}
-      </List> 
-    </nav>
+              <ListItemIcon className={classes.icon}>{item.icon}</ListItemIcon>
+              <ListItemText primary={item.name} />
+            </ListItem>
+          ))}
+        </List>
+      </nav>
 
       <Box width="90%" height="100%" sx={{ overflow: "auto" }}>
         <Outlet />

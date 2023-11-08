@@ -8,7 +8,6 @@ import Dashboard from './pages/Dashboard';
 import ErrorPage from './pages/Error404Page';
 import Error401Page from './pages/Error401page';
 import Error500Page from './pages/Error500Page';
-import CRM from './components/DashBoardPages/CRM';
 import LandingPage from './pages/LandingPage';
 import PrivateRoute from './pages/PrivateRoute';
 import { CRMProvider } from '../src/components/DashBoardPages/CRMContext';
