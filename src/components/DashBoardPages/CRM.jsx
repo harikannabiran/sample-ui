@@ -189,7 +189,7 @@ const CRM = () => {
         </>
         
       ) : (<>
-        <Box sx={{ backgroundColor: "#DDF2FD", height: "300px", width: "95%", borderRadius: "20px", paddingTop: "5vh",paddingLeft:"10px" }}>
+        <Box sx={{ backgroundColor: "#dce2f4", height: "300px", width: "95%", borderRadius: "20px", paddingTop: "5vh",paddingLeft:"10px" }}>
           <Typography mt={2} mb={2} variant="h5" sx={{ color: "#5272F2" }}>
             Hello, how can we help?
           </Typography>

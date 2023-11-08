@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { Box,  Divider, List, ListItem, ListItemIcon, ListItemText } from '@mui/material';
 import { makeStyles } from '@mui/styles';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import { Outlet, Link, Routes, Route } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';

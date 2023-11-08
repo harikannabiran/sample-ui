@@ -37,7 +37,7 @@ function Home() {
   ]
   return (
     <Box sx={{paddingLeft:"50px"}}>
-      <Box  sx={{backgroundColor:"#DDF2FD",height:"300px",width:"95%",borderRadius:"20px",paddingTop:"5vh"}}>
+      <Box  sx={{backgroundColor:"#dce2f4",height:"300px",width:"95%",borderRadius:"20px",paddingTop:"5vh"}}>
      
       <Typography mt={2} mb={2} variant='h5' sx={{color:"#5272F2"}}>Hello, how can we help?</Typography>
           <Typography mt={2} mb={2} variant='body1' sx={{color:"grey"}}>or choose a category to quickly find help you need</Typography>
