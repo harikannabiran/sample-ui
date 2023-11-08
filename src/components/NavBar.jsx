@@ -1,10 +1,19 @@
-import { AppBar, Badge, Box, Button, IconButton, Radio, Toolbar, Typography } from '@mui/material';
+import { AppBar, Badge, Box, Button, IconButton, Menu, MenuItem, Radio, Toolbar, Typography } from '@mui/material';
 import logo from "../public/logo.png"
 import React from 'react'
 import Search from './Search';
 import { AccountCircleRounded, Language,  Notifications } from '@mui/icons-material';
 import { styled } from '@mui/material/styles';
+import LogoutIcon from '@mui/icons-material/Logout';
 function NavBar() {
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
     const StyledBadge = styled(Badge)(({ theme }) => ({
         '& .MuiBadge-badge': {
           backgroundColor: '#44b700',
@@ -40,7 +49,7 @@ function NavBar() {
         <AppBar sx={{boxShadow:"none"}} position='sticky' color='inherit' enableColorOnDark>
             <Toolbar sx={{display:"flex",justifyContent:"space-between"}}>
             <div>
-                <Button href='/dashboard/home' variant='text' disableTouchRipple><img src={logo} alt='logo'></img> <Typography ml={1} variant='h6' sx={{font:"24px ",color:"#5272F2"}}>NEATLAB</Typography> </Button>
+                <Button href='/dashboard/' variant='text' disableTouchRipple><img src={logo} alt='logo'></img> <Typography ml={1} variant='h6' sx={{font:"24px ",color:"#5272F2"}}>NEATLAB</Typography> </Button>
                 <Radio size='sm' sx={{color:"grey"}}/>
                 <Search />
             </div>  
@@ -51,7 +60,7 @@ function NavBar() {
                 <IconButton>
                     <Notifications/>
                 </IconButton>
-                <IconButton>
+                <IconButton onClick={handleClick}>
                 <StyledBadge
                     overlap="circular"
                     anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
@@ -62,7 +71,17 @@ function NavBar() {
                 </StyledBadge>
                             
                 </IconButton>
-                    
+                <Menu
+                    id="basic-menu"
+                    anchorEl={anchorEl}
+                    open={open}
+                    onClose={handleClose}
+                    MenuListProps={{
+                      'aria-labelledby': 'basic-button',
+                    }}
+                  >
+                    <MenuItem onClick={handleClose} ><Button variant='text' href='/login' sx={{color:"red"}}> <LogoutIcon color='error'/> Logout</Button></MenuItem>
+                </Menu>
                 </div>
             </Toolbar>
         </AppBar>

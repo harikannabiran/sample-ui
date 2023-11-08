@@ -51,7 +51,7 @@ function LoginForm() {
                         </Box>
                         
                         <Box mt={2} mb={2}>
-                            <Button href='/dashboard/home' type='submit' variant='contained' sx={{width:"80%"}}>Login</Button>
+                            <Button href='/dashboard' type='submit' variant='contained' sx={{width:"80%"}}>Login</Button>
                         </Box>
                     </FormGroup>
                         

@@ -1,33 +1,78 @@
 import React, { useState } from 'react';
-import { Box } from '@mui/material';
+import { Box,  Divider, List, ListItem, ListItemIcon, ListItemText } from '@mui/material';
 import { makeStyles } from '@mui/styles';
-import { TreeView } from '@mui/x-tree-view/TreeView';
-import { TreeItem } from '@mui/x-tree-view/TreeItem';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import { Outlet, Link, Routes, Route } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
-import HomeIcon from '@mui/icons-material/Home';
-import ConstructionIcon from '@mui/icons-material/Construction';
-import GroupsIcon from '@mui/icons-material/Groups';
+import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
+import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
+import Groups2OutlinedIcon from '@mui/icons-material/Groups2Outlined';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
-import AnalyticsIcon from '@mui/icons-material/Analytics';
+import AnalyticsOutlinedIcon from '@mui/icons-material/AnalyticsOutlined';
 import MonetizationOnOutlinedIcon from '@mui/icons-material/MonetizationOnOutlined';
 import MemoryOutlinedIcon from '@mui/icons-material/MemoryOutlined';
+import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
+import ChatBubbleOutlineOutlinedIcon from '@mui/icons-material/ChatBubbleOutlineOutlined';
+import CalendarTodayOutlinedIcon from '@mui/icons-material/CalendarTodayOutlined';
+import ContentPasteOutlinedIcon from '@mui/icons-material/ContentPasteOutlined';
+import ContentCopyOutlinedIcon from '@mui/icons-material/ContentCopyOutlined';
+import LockOpenOutlinedIcon from '@mui/icons-material/LockOpenOutlined';
+import DescriptionOutlinedIcon from '@mui/icons-material/DescriptionOutlined';
+import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
 import Home from './DashBoardPages/Home';
 import CRM from './DashBoardPages/CRM';
 import Economics from './DashBoardPages/Economics';
 import Settings from './DashBoardPages/Settings';
 import Meetings from './DashBoardPages/Meetings';
-import Analytics from '@mui/icons-material/Analytics';
+import Analytics from "./DashBoardPages/Clients";
 import Help from './DashBoardPages/Help';
+import Landing from './DashBoardPages/Landing';
+import Email from "./DashBoardPages/Email";
+import Chat from "./DashBoardPages/Chat";
+import Calendar from "./DashBoardPages/Calendar";
+import Pages from "./DashBoardPages/Pages";
+import Roles from "./DashBoardPages/Roles";
+import Dialog from "./DashBoardPages/Dialog";
+import Invoice from "./DashBoardPages/Invoice";
+import User from "./DashBoardPages/User";
 
 const useStyles = makeStyles({
   item: {
-    margin: "0px",
-    fontSize: "64px",
+    color:"grey",
+    padding:"5px",
+    height: "100%",
+    marginLeft: "10px",
+    textDecoration:"none",
+    borderTopRightRadius:"100px",
+    borderBottomRightRadius:"100px",
     textAlign: "left",
+   
+    '&:hover': {
+      backgroundColor:" linear-gradient(90deg, rgba(49,162,249,1) 0%, rgba(49,162,249,1) 35%, rgba(38,77,201,1) 100%)",
+     
+    }, 
+    
+    
+    "&:focus": {
+      color:"white",
+      background:" linear-gradient(90deg, rgba(49,162,249,1) 0%, rgba(49,162,249,1) 35%, rgba(38,77,201,1) 100%)",
+      outline: "none",
+    },
+   
   },
+  icon:{
+    fontSize:"32px",
+    color: 'inherit',
+  },
+  selected: {
+    color:"white",
+    backgroundColor: " linear-gradient(90deg, rgba(49,162,249,1) 0%, rgba(49,162,249,1) 35%, rgba(38,77,201,1) 100%)",
+    '& $icon': {
+      color: "white", 
+    },
+  },
+   
 });
 
 function Sidebar() {
@@ -35,91 +80,80 @@ function Sidebar() {
   const location = useLocation();
 
   const sidebarItems = [
-    { name: "Home", icon: <HomeIcon color='grey' />, path: '/dashboard/home' },
-    { name: "CRM", icon: <MemoryOutlinedIcon />, path: '/dashboard/crm' },
-    { name: "Economics", icon: <MonetizationOnOutlinedIcon />, path: '/dashboard/economics' },
-    { name: "Settings", icon: <ConstructionIcon />, path: '/dashboard/settings' },
-    { name: "Meetings", icon: <GroupsIcon />, path: '/dashboard/meetings' },
-    { name: "Analytics", icon: <AnalyticsIcon />, path: '/dashboard/analytics' },
-    { name: "Help", icon: <HelpOutlineIcon />, path: '/dashboard/help' }
+    { name: "Home", icon: <HomeOutlinedIcon fontSize='medium' />, path: '/dashboard/home' },
+    { name: "CRM", icon: <MemoryOutlinedIcon fontSize='medium'/>, path: '/dashboard/crm' },
+    { name: "eCommerce", icon: <MonetizationOnOutlinedIcon fontSize='medium' />, path: '/dashboard/eCommerce' },
+    { name: "Settings", icon: <SettingsOutlinedIcon fontSize='medium' />, path: '/dashboard/settings' },
+    { name: "Analytics", icon: <AnalyticsOutlinedIcon fontSize='medium'/>, path: '/dashboard/analytics' },
+    { name: "Meetings", icon: <Groups2OutlinedIcon fontSize='medium' />, path: '/dashboard/meetings' },
+    { name: "Help", icon: <HelpOutlineIcon fontSize='medium' />, path: '/dashboard/help' }
   ];
-
+  const sidebarAppSection=[
+    { name: "Email", icon: <EmailOutlinedIcon fontSize='medium' />, path: '/dashboard/email' },
+    { name: "Chat", icon: <ChatBubbleOutlineOutlinedIcon fontSize='medium'/>, path: '/dashboard/chat' },
+    { name: "Calendar", icon: <CalendarTodayOutlinedIcon fontSize='medium' />, path: '/dashboard/calendar' },
+    { name: "Invoice", icon: <ContentPasteOutlinedIcon fontSize='medium' />, path: '/dashboard/invoice' },
+    { name: "User", icon: <ContentCopyOutlinedIcon fontSize='medium' />, path: '/dashboard/user' },
+    { name: "Roles & Permission", icon: <LockOpenOutlinedIcon fontSize='medium'/>, path: '/dashboard/roles-and-permission' },
+    { name: "Pages", icon: <DescriptionOutlinedIcon fontSize='medium' />, path: '/dashboard/pages' },
+    { name: "Dialog Examples", icon: <PersonOutlineOutlinedIcon fontSize='medium' />, path: '/dashboard/dialog-examples' },
+  ]
   const currentPath = location.pathname;
+  const [selectedItem, setSelectedItem] = useState(currentPath);
+
+  const handleItemClick = (item) => {
+    setSelectedItem(item);
+  };
 
   return (
     <Box sx={{ display: "flex", flexGrow: 1, height: "848px" }}>
-      <Box sx={{
-        width: "300px",
-        height: "90vh",
-        background: "inherit",
-        margin: "0px",
-        justifyContent: "space-between",
-        display: "flex",
-        flexDirection: "column"
-      }}>
-        <main style={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "space-between",
-          marginTop: "50px"
-        }}>
-          <section style={{ maxWidth: "300px" }}>
-            <Box sx={{
-              maxWidth: "100%",
-              minHeight: 180,
-              flexGrow: 1
-            }}>
-              <TreeView
-                sx={{ width: "100%" }}
-                defaultCollapseIcon={<ExpandMoreIcon />}
-                defaultExpandIcon={<ChevronRightIcon />}
-              >
-                {sidebarItems.map((item, index) => (
-                  <TreeItem className={classes.item} icon={item.icon}
-                    sx={{
-                      height: "42px",
-                      marginLeft: "10px",
-                      textDecoration:"none",
-                      ".MuiTreeItem-label": {
-                        fontSize: "24px",
-                        color: "grey"
-                      },
-                      ".MuiTreeItem-iconContainer": {
-                        color: "grey"
-                      },
-                      ".Mui-selected": {
-                        backgroundColor: "black",
-                      },
-                      ".MuiTreeItem-content": {
-                        padding: "0px 10px"
-                      },
-                      ".MuiTreeItem-group": {
-                        backgroundColor: "black",
-                      },
-                      ".MuiTreeItem-root &:hover": {
-                        backgroundColor: "black",
-                      }
-                    }}
-                    nodeId={index}
-                    label={<Link to={item.path} style={{textDecoration:"none"}}>{item.name}</Link>}
-                  />
-                ))}
-              </TreeView>
-            </Box>
-          </section>
-        </main>
-      </Box>
+         <nav className={classes.sidebar} style={{width:"300px" }}>
+      <List  >
+        {sidebarItems.map((item, index) => (
+          <ListItem
+              className={`${classes.item} ${currentPath === item.path ? classes.selected : ''}`}
+              key={item.name}
+              component={Link}
+              to={item.path}
+            >
+            <ListItemIcon className={classes.icon}>{item.icon}</ListItemIcon>
+            <ListItemText primary={item.name} />
+          </ListItem>
+        ))}
+        <Divider sx={{marginTop:"10px",color:"grey",fontSize:"small"}} textAlign='left'>APPS & PAGES</Divider>
+        {sidebarAppSection.map((item, index) => (
+          <ListItem
+              className={`${classes.item} ${currentPath === item.path ? classes.selected : ''}`}
+              key={item.name}
+              component={Link}
+              to={item.path}
+            >
+            <ListItemIcon className={classes.icon}>{item.icon}</ListItemIcon>
+            <ListItemText primary={item.name} />
+          </ListItem>
+        ))}
+      </List> 
+    </nav>
 
       <Box width="90%" height="100%" sx={{ overflow: "auto" }}>
         <Outlet />
         <Routes>
+        <Route path='/' element={<Landing/>}/>
           <Route path="/home" element={<Home />} />
           <Route path="/crm" element={<CRM />} />
-          <Route path="/economics" element={<Economics />} />
+          <Route path="/ecommerce" element={<Economics />} />
           <Route path="/settings" element={<Settings />} />
           <Route path="/meetings" element={<Meetings />} />
           <Route path="/analytics" element={<Analytics />} />
           <Route path="/help" element={<Help />} />
+          <Route path="/email" element={<Email />} />
+          <Route path="/chat" element={<Chat />} />
+          <Route path="/calendar" element={<Calendar />} />
+          <Route path="/invoice" element={<Invoice />} />
+          <Route path="/roles-and-permission" element={<Roles />} />
+          <Route path="/pages" element={<Pages />} />
+          <Route path="/dialog-examples" element={<Dialog />} />
+          <Route path="/user" element={<User />} />
           {/* Add other nested routes for your menu items */}
         </Routes>
       </Box>

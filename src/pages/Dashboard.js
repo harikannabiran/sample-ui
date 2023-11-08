@@ -10,11 +10,18 @@ import Settings  from "../components/DashBoardPages/Settings"
 import Meetings from "../components/DashBoardPages/Meetings"
 import Analytics from "../components/DashBoardPages/Clients"
 import Help from "../components/DashBoardPages/Help"
+import { makeStyles } from '@mui/styles';
+const useStyles = makeStyles({
+    navbar: {
+      zIndex: 1,     },
+  
+  });
 const Dashboard=()=>{
+    const classes= useStyles()
     return(
             <div >
                 <NavBar/>
-                <Sidebar  />
+                <Sidebar className={classes.navbar} />
                 
                 <footer style={{display:"flex",justifyContent:"space-between",margin:"10px 100px 10px 300px"}}>
                     <Box>

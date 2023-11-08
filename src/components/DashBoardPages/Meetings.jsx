@@ -4,7 +4,7 @@ import React from 'react'
 function Meetings() {
   return (
     <Box >
-    <Typography variant='h2' >Meetings section</Typography>
+    <Typography variant='h2'  sx={{color:"grey"}}>Meetings section</Typography>
 
     </Box>
   )
