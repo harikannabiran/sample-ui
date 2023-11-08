@@ -1,4 +1,3 @@
-
 import { Box, Link, Typography } from "@mui/material"
 import NavBar from "../components/NavBar"
 import Sidebar from "../components/SideBar"

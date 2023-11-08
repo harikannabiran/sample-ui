@@ -55,8 +55,8 @@ function Home() {
       
         {cardData.map((data)=>{
           return(
-            <Grid item xs={4} sx={{width:"400px"}}>
-            <Card sx={{width:"400px", height:"300px",boxShadow:"3"}}>
+            <Grid item xs={4} sx={{width:"80%"}}>
+            <Card sx={{width:"80%", height:"300px",boxShadow:"3"}}>
             <CardMedia component="img" height='194' image={data.image}/>
             <CardContent>
               <Typography variant='h5'sx={{color:"grey"}}>{data.header}</Typography>

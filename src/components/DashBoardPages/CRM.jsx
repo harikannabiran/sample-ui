@@ -154,8 +154,8 @@ const CRM = () => {
         <>
         <Box sx={{ margin: "20px 0px 50px 0px", paddingLeft: "80px" }}>
           <Grid container rowSpacing={2} columns={{ xs: 4, sm: 4, md: 12 }}>
-            <Grid item xs={4} sx={{ width: "400px" }}>
-              <Card sx={{ width: "400px", height: "250px", boxShadow: "2" }}>
+            <Grid item xs={4} sx={{ width: "80%" }}>
+              <Card sx={{ width: "80%", height: "250px", boxShadow: "2" }}>
                 <CardContent sx={{ padding: "0px" }}>
                   <Typography variant="h6" sx={{ color: "grey", backgroundColor: "#F0F0F0", fontSize: "24px", alignItems: "center", width: "100%", height: "50px", paddingTop: "10px", paddingLeft: "20px", textAlign: "left" }}>
                     {cardData[cardIndex].icon} {cardData[cardIndex].header} ({cardData[cardIndex].items.length})
@@ -204,9 +204,9 @@ const CRM = () => {
           <Grid container rowSpacing={2} columns={{ xs: 4, sm: 4, md: 12 }}>
             {cardData.map((data, index) => {
               return (
-                <Grid item xs={4} sx={{ width: "400px" }} key={data.header}>
+                <Grid item xs={4} sx={{ width: "80%" }} key={data.header}>
                   <CardActionArea  component="div" sx={{ borderStyle: "none", backgroundColor: "inherit" }}>
-                    <Card  sx={{ width: "400px", height: "250px", boxShadow: "2" }}>
+                    <Card  sx={{ width: "80%", height: "250px", boxShadow: "2" }}>
                       <CardContent onClick={() => handleCardClick(index)} sx={{ padding: "0px" }}>
                         <Typography variant="h6" sx={{ color: "grey", backgroundColor: "#F0F0F0", fontSize: "24px", alignItems: "center", width: "100%", height: "50px", paddingTop: "10px", paddingLeft: "20px", textAlign: "left" }}>
                           {data.icon} {data.header} ({data.items.length})

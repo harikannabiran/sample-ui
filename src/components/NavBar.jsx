@@ -51,7 +51,8 @@ function NavBar() {
             <Toolbar sx={{display:"flex",justifyContent:"space-between"}}>
             <div>
                 <Button href='/dashboard/' variant='text' disableTouchRipple><img src={logo} alt='logo'></img> <Typography ml={1} variant='h6' sx={{font:"24px ",color:"#5272F2"}}>NEATLAB</Typography> </Button>
-                <Radio size='sm'  sx={{
+                <Radio size='sm' 
+                 sx={{
                   color: red[800],
                   '&.Mui-checked': {
                     color: red[600],
