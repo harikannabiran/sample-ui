@@ -5,7 +5,7 @@ import React from 'react'
 function LandingPageComp() {
   return (
 
-      <Box >
+      <Box  sx={{backgroundColor:"white"}}>
         <Container sx={{marginTop:"40vh"}}>
             <Typography variant='h2' sx={{color:"#5272F2",marginTop:"10px"}}>Let's Start Our Adventure</Typography>
             <Typography variant='h6' sx={{color:"grey",marginTop:"10px"}}>Come on, Hit the road!</Typography>
