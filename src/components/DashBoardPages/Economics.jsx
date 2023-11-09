@@ -58,7 +58,7 @@ function Economics() {
     }
   ]
   return (
-    <Box  >
+    <Box sx={{backgroundColor:"white",paddingBottom:"10px"}} >
       <Container>
         <Box>
           <Typography variant='h5' sx={{color:"grey"}}>Pricing Plans</Typography>
