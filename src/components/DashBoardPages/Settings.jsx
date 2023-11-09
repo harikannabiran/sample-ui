@@ -14,7 +14,7 @@ function Settings() {
     setValue(newValue);
   };
   return (
-    <Box  sx={{width:"100%",height:"100%"}}>
+    <Box  sx={{width:"100%",height:"100%",backgroundColor:"white"}}>
        <Box sx={{ width: '100%', typography: 'body1' }}>
       <TabContext value={value}>
         <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
