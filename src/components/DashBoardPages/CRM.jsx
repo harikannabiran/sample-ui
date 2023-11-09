@@ -19,7 +19,7 @@ import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import MobileScreenShareIcon from '@mui/icons-material/MobileScreenShare';
 import InfoIcon from '@mui/icons-material/Info';
 import { styled } from '@mui/material/styles';
-import { useParams,  useNavigate } from 'react-router-dom';
+import { useParams,  useNavigate, Routes } from 'react-router-dom';
 import { useCRM } from './CRMContext';
 const CRM = () => {
   const AccSettingIcon = styled(ConstructionIcon)(({ theme }) => ({
@@ -139,11 +139,10 @@ const CRM = () => {
   console.log(isFlipped)
   const handleCardClick = (index) => {
     setIsFlipped(true);
-    console.log('Before click - isFlipped:', isFlipped);
     setSelectedCardIndex(index);
     setCardIndex(index);
     
-    console.log('After click - isFlipped:', isFlipped);
+    
     
     
   };

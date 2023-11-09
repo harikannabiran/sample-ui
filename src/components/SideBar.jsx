@@ -47,7 +47,7 @@ const useStyles = makeStyles({
     textAlign: "left",
     
     '&:hover': {
-      backgroundColor:" rgba(49,162,249,1)",
+      backgroundColor:"whitesmoke",
      
     }, 
     
@@ -110,7 +110,7 @@ function Sidebar() {
   };
   return (
     <Box sx={{ display: "flex", flexGrow: 1, height: "848px" }}>
-         <nav className={classes.sidebar} style={{ width: "300px" }}>
+         <nav className={classes.sidebar} style={{ maxWidth: "300px",minWidth:"50px" }}>
         <List>
           {sidebarItems.map((item, index) => (
             <ListItem
