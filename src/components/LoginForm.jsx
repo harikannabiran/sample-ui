@@ -12,8 +12,8 @@ function LoginForm() {
       event.preventDefault();
     };
   return (
-    <Container sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center',width:"600px" }}>
-            <Card  sx={{height:"100%",width:"600px",boxShadow:"none",marginTop:"30rem"}}>
+    <Container sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center',width:"600px",paddingTop:"15rem" ,backgroundColor:"white"}}>
+            <Card  sx={{height:"100%",width:"600px",boxShadow:"none"}}>
            
                 <CardContent >
                 <Typography ml={7} sx={{textAlign:"left"}} variant='h5'>Welcome to NeatLab!</Typography>

@@ -42,12 +42,12 @@ const useStyles = makeStyles({
     height: "100%",
     marginLeft: "10px",
     textDecoration:"none",
-    borderTopRightRadius:"100px",
-    borderBottomRightRadius:"100px",
+    borderTopRightRadius:"80px",
+    borderBottomRightRadius:"80px",
     textAlign: "left",
     
     '&:hover': {
-      backgroundColor:"whitesmoke",
+      backgroundColor:"white",
      
     }, 
     
@@ -110,7 +110,7 @@ function Sidebar() {
   };
   return (
     <Box sx={{ display: "flex", flexGrow: 1, height: "848px" }}>
-         <nav className={classes.sidebar} style={{ maxWidth: "300px",minWidth:"50px" }}>
+         <nav className={classes.sidebar} style={{ maxWidth: "300px",minWidth:"100px" }}>
         <List>
           {sidebarItems.map((item, index) => (
             <ListItem
@@ -138,7 +138,7 @@ function Sidebar() {
         </List>
       </nav>
 
-      <Box width="90%" height="100%" sx={{ overflow: "auto" }}>
+      <Box width="90%" height="100%" sx={{ overflow: "auto",marginLeft:"10px", backgroundColor:"inherit" }}>
         <Outlet />
         <Routes>
         <Route path='/' element={<Landing/>}/>

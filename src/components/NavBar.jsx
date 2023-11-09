@@ -45,9 +45,9 @@ function NavBar() {
       }));
 
 
-  return (<div>
-    <Box sx={{ flexGrow: 1 }} >
-        <AppBar sx={{boxShadow:"none"}} position='sticky' color='inherit' enableColorOnDark>
+  return (<div style={{backgroundColor:"inherit"}}>
+    <Box sx={{ flexGrow: 1,backgroundColor:"inherit" }} >
+        <AppBar sx={{boxShadow:"none",backgroundColor:"inherit"}} position='sticky' color='inherit' enableColorOnDark>
             <Toolbar sx={{display:"flex",justifyContent:"space-between"}}>
             <div>
                 <Button href='/dashboard/' variant='text' disableTouchRipple><img src={logo} alt='logo'></img> <Typography ml={1} variant='h6' sx={{font:"24px ",color:"#5272F2"}}>NEATLAB</Typography> </Button>

@@ -6,8 +6,8 @@ import { ChevronLeft } from '@mui/icons-material';
 function ForgotPasswordForm() {
    
   return (
-    <Container sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center',width:"600px",height:"80%" }}>
-            <Card  sx={{height:"100%",width:"600px",boxShadow:"none",marginTop:"30rem"}}>
+    <Container sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center',width:"600px",height:"100%",paddingTop:"15rem" ,backgroundColor:"white" }}>
+            <Card  sx={{height:"100%",width:"600px",boxShadow:"none"}}>
                 <CardContent >
                 <Typography ml={7} sx={{textAlign:"left"}} variant='h5'>Forgot password</Typography>
                     <Typography ml={7} sx={{textAlign:"left"}} variant='subtitle1'>Please enter your email & we will send instructions to reset password</Typography>
